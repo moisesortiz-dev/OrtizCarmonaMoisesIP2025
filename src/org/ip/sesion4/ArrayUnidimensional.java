@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class ArrayUnidimensional {
 
-    // Variable para almacenar el array de enteros
     private static int[] arrayDatos = null;
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -59,18 +58,14 @@ public class ArrayUnidimensional {
                 mostrarValoresExtremos();
                 break;
             case 5:
-                // Salida manejada por el bucle do-while
                 break;
             default:
                 System.out.println("Opción no válida. Por favor, intente de nuevo.");
         }
     }
 
-    // --- Opción 1: Introducir Array Ascendente ---
-
     private static void introducirArrayAscendente() {
         int N = 0;
-        // 1. Solicitar y validar la longitud N
         while (N <= 0) {
             try {
                 System.out.print("Introduzca la longitud (N) del array (> 0): ");
@@ -84,9 +79,8 @@ public class ArrayUnidimensional {
             }
         }
         arrayDatos = new int[N];
-        int valorAnterior = Integer.MIN_VALUE; // Inicializamos con el valor mínimo posible
+        int valorAnterior = Integer.MIN_VALUE;
         
-        // 2. Introducir elementos asegurando el orden ascendente
         System.out.println("Introduzca los elementos de forma ASCENDENTE:");
         for (int i = 0; i < N; i++) {
             int valorActual;
@@ -112,8 +106,6 @@ public class ArrayUnidimensional {
         System.out.println("✅ Array cargado y validado con éxito.");
     }
 
-    // --- Opción 2: Visualizar Array ---
-
     private static void visualizarArray() {
         if (arrayDatos == null) {
             System.out.println("⚠️ Error: El array de datos no ha sido cargado (Opción 1).");
@@ -123,8 +115,6 @@ public class ArrayUnidimensional {
         System.out.println(Arrays.toString(arrayDatos));
     }
 
-    // --- Opción 3: Invertir Array (Orden Inverso) ---
-
     private static void invertirArray() {
         if (arrayDatos == null) {
             System.out.println("⚠️ Error: El array de datos no ha sido cargado (Opción 1).");
@@ -132,7 +122,6 @@ public class ArrayUnidimensional {
         }
         
         int N = arrayDatos.length;
-        // Se invierten los elementos intercambiando los extremos hacia el centro
         for (int i = 0; i < N / 2; i++) {
             int temp = arrayDatos[i];
             arrayDatos[i] = arrayDatos[N - 1 - i];
@@ -143,7 +132,6 @@ public class ArrayUnidimensional {
         visualizarArray();
     }
 
-    // --- Opción 4: Mostrar Valores Extremos ---
 
     private static void mostrarValoresExtremos() {
         if (arrayDatos == null) {
@@ -151,14 +139,11 @@ public class ArrayUnidimensional {
             return;
         }
         
-        // Como el array debería estar ordenado (ascendente o descendente),
-        // los valores extremos son el primer y último elemento.
         
         int mayor = arrayDatos[0];
         int menor = arrayDatos[0];
         
-        // Asignamos la primera posición para empezar la búsqueda
-        // Luego recorremos el resto del array
+
         for (int i = 1; i < arrayDatos.length; i++) {
             if (arrayDatos[i] > mayor) {
                 mayor = arrayDatos[i];
